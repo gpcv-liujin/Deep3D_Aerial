@@ -1,0 +1,55 @@
+PREPROCESS:
+  fext: ".png"
+  cams_ori: "XrightYup"
+  rotation_ori: "Rwc"
+  translation_ori: "twc"
+  image_w: 3712
+  image_h: 5504
+  image_scale: 0.5
+
+
+VIEWSELECTION:
+  run_view_selection: true
+  view_selection_mode: "triangulated_points"        # __view_selection__: "triangulated_points" or "tie_points"
+  scene_block_size: [300, 600, 600]
+  block_overlap: 4
+  bbx_border_scene: [-430.0, 150.0, -330.0, 250.0, 700.0, 900.0]
+
+DENSEMATCH:
+  run_mvs: true
+  view_num: 5
+  num_depth: 384
+  min_interval: 0.1
+  model_type: "adamvs"      # __selection__: "casmvsnet" or "ucsnet" or "msrednet" or "adamvs"
+  pretrain_weight: "mvs/mvs_jone/checkpoints/adamvs/meitan_oblique_5/model_000031_0.1330.ckpt"
+  display_depth: true
+
+FUSION:
+  run_depth_fusion: true
+  fusion_num: 10
+  geo_consist_num: 4
+  photomatric_threshold: 0.2
+  position_threshold: 1
+  depth_threshold: 0.01
+  normal_threshold: 90.0
+  pc_format: "ply"
+
+CREATEMESH:
+  run_create_mesh: true
+  recons_insert_distance: 1.5
+  recons_decimate_ratio : 1
+  refine_decimate_ratio : 1
+  texture_decimate_ratio: 1
+  refine_scale_times: 1
+
+CREATEDSM:
+  run_create_dsm: true
+  dsm_source: "mesh"                # __source_selection__: "mesh" or "pc"
+  pc_select_method: "Robust_Max"    #  __pc_select_method__: "Max" or "Robust_Max"
+  pc_interpolation_method: null       # __pc_interpolation_method__: "none" or "MovingAverage"
+  dsm_uint: [0.2, 0.2]
+  dsm_size: [2900, 2900]
+  bbx_border_dsm: [-430.0, 150.0, -330.0, 250.0, 700.0, 900.0]
+
+
+

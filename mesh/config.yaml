@@ -1,0 +1,75 @@
+RECONSTRUCTMESH:
+  # Generic options
+  strExportType: "ply"
+  nArchiveType: 2
+  nProcessPriority: -1
+  nMaxThreads: 0
+
+  # Reconstruction options
+  fDistInsert: 1.5
+  bUseConstantWeight: True
+  bUseFreeSpaceSupport: False
+  fThicknessFactor: 1
+  fQualityFactor: 1
+  # Clean options
+  fDecimateMesh: 1.0  # 1.0
+  nTargetFaceNum: 0
+  fRemoveSpurious: 20.0
+  bRemoveSpikes: True
+  nCloseHoles: 30  # 30
+  nSmoothMesh: 1  # 2
+  # Hidden options
+  strMeshFileName: ""
+  bMeshExport: False
+  fSplitMaxArea: 0.0
+  strImagePointsFileName: ""
+
+REFINEMESH:
+  # Generic options
+  strExportType: "ply"
+  nArchiveType: 2
+  nProcessPriority: -1
+  nMaxThreads: 0
+  # Refine options
+  nResolutionLevel: 0
+  nMinResolution: 640
+  nMaxViews: 8    
+  fDecimateMesh: 1.0 
+  nCloseHoles: 30 
+  nEnsureEdgeSize: 1
+  nMaxFaceArea: 64
+  nScales: 1
+  fScaleStep: 0.5
+  nReduceMemory: 1
+  nAlternatePair: 0
+  fRegularityWeight: 0.2
+  fRatioRigidityElasticity: 0.9
+  fGradientStep: 45.05
+  fPlanarVertexRatio: 0.0
+  bUseCUDA: True
+  # Hidden options
+  strMeshFileName: ""
+
+TEXTUREMESH:
+  # Generic options
+  strExportType: "ply"
+  nArchiveType: 2
+  nProcessPriority: -1
+  nMaxThreads: 0
+
+  # Texture options
+  fDecimateMesh: 1.0  
+  nCloseHoles: 30  
+  nResolutionLevel: 0 
+  nMinResolution: 640
+  fOutlierThreshold: 0.06
+  fRatioDataSmoothness: 0.1
+  bGlobalSeamLeveling: True
+  bLocalSeamLeveling: True
+  nTextureSizeMultiple: 0
+  nRectPackingHeuristic: 3
+  nColEmpty: 0x00A6A6A6 
+  nOrthoMapResolution: 0
+
+  # Hidden options
+  strMeshFileName: ""
